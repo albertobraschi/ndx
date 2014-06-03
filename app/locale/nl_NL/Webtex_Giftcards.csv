@@ -1,0 +1,92 @@
+Manage Gift Cards,Cadeaubonnen beheren
+Add New Gift Card,Cadeaubon toevoegen
+Save Gift Card,Cadeaubon opslaan
+Delete Gift Card,Cadeaubon verwijderen
+Resend Gift Card,Cadeaubon opnieuw versturen
+Edit Gift Card \'%s\',Cadeaubon \'%s\' bewerken
+New Gift Card,Nieuwe cadeaubon
+Card ID,Cadeaubon ID
+Card Code,Cadeaubon code
+Initial Value,Startwaarde
+Current Balance,Huidige saldo
+Order,Bestelling
+View,Bekijken
+Date Created,Datum aangemaakt
+Card Type,Cadeaubon type
+Print,Printen
+E-mail,E-mailen
+Offline,Offline
+Status,Status
+Active,Actief
+Inactive,Niet actief
+Delete,Verwijderen
+Are you sure?,Weet u het zeker?
+Resend,Opnieuw versturen
+Manage Gift Cards,Cadeaubonnen beheren
+Gift Card Information,Cadeaubon informatie
+Gift Card Information,Cadeaubon informatie
+Gift Card Info,Cadeaubon informatie
+Card Code,Cadeaubon code
+Initial Value,Startwaarde
+Order,Bestelling
+Initial Value,Startwaarde
+Current Balance,Huidige saldo
+Status,Status
+Active,Actief
+Inactive,Niet actief
+Gift Card Type,Cadeaubon type
+E-mail,E-mailen
+Print,Printen
+Recipient Info,Ontvangersinformatie
+Offline Address (for offline cards only),Offline adres (alleen voor offline cadeaubonnen)
+To Name,Naam ontvanger
+To Email,E-mail ontvanger
+From Name,Naam verstuurder
+Message,Bericht
+Card amount is not within the specified range.,Cadeaubon bedrag is niet binnen het voorgeschreven bedragslimiet. 
+%s was added to your shopping cart.,%s was aan uw winkelwagentje toegevoegd.
+Cannot add the item to shopping cart.,Het item kan niet aan uw winkelwagentje toegevoegd worden.
+To redeem your gift card or to use your gift card balance you need to be logged in.,U moet ingelogd zijn om uw cadeaubon te gebruiken of in te wisselen.
+"Gift Card ""%s"" was applied.","Cadeaubon ""%s"" was toegepast."
+"Gift Card ""%s"" is not valid.","Cadeaubon ""%s"" is niet geldig."
+To redeem your gift card or to use your gift card balance you need to be logged in.,U moet ingelogd zijn om uw cadeaubon te gebruiken of in te wisselen.
+To redeem your gift card you need to be logged in.,U moet ingelogd zijn om uw cadeaubon  te gebruiken.
+"Gift Card ""%s"" was applied.","Cadeaubon ""%s"" was toegepast."
+"Gift Card ""%s"" is not valid.","Cadeaubon ""%s"" is niet geldig."
+Gift Cards,Cadeaubonnen
+Gift Card,Cadeaubon
+Card does not exists,Cadeaubon bestaat niet
+Gift card was successfully saved,Cadeaubon was met succes opgeslagen
+Unable find gift card to save,Kan geen cadeaubon vinden om op te slaan
+Gift card was successfully deleted,Cadeaubon was met success verwijderd
+Please select gift card(s),Selecteer cadeaubon(nen)
+Total of %d geftcard(s) were successfully deleted,In totaal zijn %d cadeaubon(nen) verwijderd
+Please select gift card(s),Selecteer cadeaubon(nen)
+%d giftcard(s) were successfully resent,%d cadeaubon(nen) zijn opnieuw verstuurd
+There was an error processing your order. Please contact us or try again later.,Er was een fout tijdens de verwerking van uw bestelling. Neem contact met ons op of probeer het later opnieuw.
+Please specify the product\'s option(s).,Selecteer de optie(s) voor het product.
+My Gift Cards,Mijn cadeaubonnen
+My Gift Card balance,Mijn cadeaubon saldo
+Enter the Gift Card code,Voer cadeauboncode in
+Redeem,Gebruiken
+Card Type,Cadeaubon type
+Move to Wishlist,Verplaatsen naar verlanglijstje
+Gift Gards,Cadeaubonnen
+Use my Gift Card balance.,Gebruik mijn cadeaubon saldo
+Or redeem and use your Gift Card now:,Of gebruik uw cadeaubon nu:
+Redeem and Use,Gebruik
+"To use your gift cards, please <a href=""%s"">register</a> or <a href=""%s"">log in</a>.","Om de cadeaubon(nen) te gebruiken moet u eerst <a href=""%s"">registreren</a> of <a href=""%s"">inloggen</a>."
+Choose the type of Gift Card,Kies het type cadeaubon
+E-mail Gift Card (to someone or yourself),E-mail cadeaubon (naar iemand anders of naar uzelf) 
+Print-Out Gift Card,Cadeaubon uitprinten
+Amount,Bedrag
+Recipient E-mail,E-mail ontvanger
+To,Naar
+From,Van
+Message,Bericht
+Used Gift Cards,Gebruikte cadeaubonnen
+Total Gift Cards Amount,Totaal bedrag cadeaubonnen
+Redeem and use your Gift Card now,Gebruik uw cadeaubon nu
+Check Gift Card Balance:,Check cadeaubon saldo:
+Purchased Gift Cards,Koop cadeaubon(nen)
+Used Gift Cards,Gebruikte cadeaubonnen

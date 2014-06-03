@@ -1,0 +1,126 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+    $helper     = Mage::helper('catalog/category');
+    $collection = $helper->getStoreCategories();
+    $array      = $helper->getStoreCategories();
+?>
+	<footer class="sixteen columns">
+        <div class="four columns categories_div alpha">
+            <h2>
+                Shop Chef Central
+            </h2>
+             <?php
+                 foreach($collection as $cat){
+             ?>
+                    <div class="sixteen">
+                        <a href="<?php echo Mage::getModel("catalog/category")->load($cat->getEntityId())->getUrl();?>">
+                            <span class="category-title">
+                                <?php
+                                    echo $cat->getName();
+                                ?>
+                            </span>
+                        </a>
+                    </div>
+             <?  }
+             ?>
+		</div><!--about-->
+        <div class="four columns categories_div alpha">
+            <h2>
+                Customer Service
+                <br>
+                914-328-1376
+            </h2>
+             <div class="sixteen">
+                <a href="<?php echo Mage::getUrl() . "about-us";?>">
+                    <span class="category-title">
+                        About Us
+                    </span>
+                </a>
+             </div>
+             <div class="sixteen">
+                <a href="<?php echo Mage::getUrl() . "privacy-policy";?>">
+                    <span class="category-title">
+                        Privacy Policy
+                    </span>
+                </a>
+             </div>
+             <div class="sixteen">
+                <a href="<?php echo Mage::getUrl() . "terms-conditions";?>">
+                    <span class="category-title">
+                        Terms & Conditions
+                    </span>
+                </a>
+             </div>
+             <div class="sixteen">
+                <a href="<?php echo Mage::getUrl() . "shipping";?>">
+                    <span class="category-title">
+                        Shipping
+                    </span>
+                </a>
+             </div>
+             <div class="sixteen">
+                <a href="<?php echo Mage::getUrl() . "returns";?>">
+                    <span class="category-title">
+                        Returns
+                    </span>
+                </a>
+             </div>
+             <div class="sixteen">
+                <a href="<?php echo Mage::getUrl() . "/customer/account/";?>">
+                    <span class="category-title">
+                        Order Tracking
+                    </span>
+                </a>
+             </div>
+             <div class="sixteen">
+                <a href="<?php echo Mage::getUrl() . "contact-us";?>">
+                    <span class="category-title">
+                        Contact Us
+                    </span>
+                </a>
+             </div>
+
+        </div>
+
+		<!--customerservice-->
+        <div class="four columns addressinfo">
+            <div id="Socialinfo">
+                <h2>Stay Connected</h2>
+                <a target="_blank" href="https://www.facebook.com/chefcentralinc"><img src="<?php echo $this->getSkinUrl('images/icon-fb.png') ?>"></a>
+                <a target="_blank" href="https://www.pinterest.com/chefcentral"><img src="<?php echo $this->getSkinUrl('images/icon-pin.png') ?>"></a>
+                <a target="_blank" href="https://www.twitter.com/chefcentral"><img src="<?php echo $this->getSkinUrl('images/icon-twitter.png') ?>"></a>
+                <a target="_blank" href="http://www.youtube.com/user/ChefCentralEvents"><img src="<?php echo $this->getSkinUrl('images/icon-youtube.png') ?>"></a>
+            </div>
+        </div>
+
+        <div class="four columns addressinfo">
+            <h2>Join Our Community</h2>
+            <?php echo $this->getChildHtml('footer.newsletter_new') ?>
+        </div>
+
+	</footer>
+	<address class="sixteen columns alpha omega"><?php echo $this->getCopyright() ?></address>
+</div><!--Container-->

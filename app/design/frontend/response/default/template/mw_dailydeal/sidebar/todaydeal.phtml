@@ -1,0 +1,124 @@
+<?php
+$_coreHelper = $this->helper('core');
+$_taxHelper = $this->helper('tax');
+$title = Mage::getStoreConfig('dailydeal/general/title');
+$_dealCollection = $this->getDeals();
+$_collectionSize = count($_dealCollection);
+if ($_collectionSize > 0):
+    foreach ($_dealCollection as $_deal):
+        MW_Dailydeal_Model_Business::increateFeaturedView($_deal->getId());
+        $dealqty = $_deal->getDealQty();
+        $soldqty = $_deal->getSoldQty();
+        $gmtcore = Mage::getSingleton('core/date')->getGmtOffset();
+        $beforetime = Mage::getModel('core/date')->timestamp(time()) - strtotime($_deal->getStartDateTime());
+        $aftertime = strtotime($_deal->getEndDateTime()) - Mage::getModel('core/date')->timestamp(time());
+        if (($aftertime > 0) && ($beforetime >= 0)) {
+            $_product = Mage::getModel('catalog/product')->load($_deal->getProductId());
+            ?>
+
+			<?php $_dld_color_title = Mage::helper('dailydeal')->getConfigSchemeColor(); ?>
+			<?php $_dld_color_coundown = Mage::helper('dailydeal')->getConfigCountdownColor(); ?>
+			<?php $_dld_color_lighight = Mage::helper('dailydeal')->getConfigHighlightColor(); ?>
+
+			<style type="text/css">
+				.block-todaydeal{ box-shadow: 0 <?php echo $_dld_color_title; ?>; -moz-box-shadow: 0px <?php echo $_dld_color_title; ?>; -webkit-box-shadow: 0px <?php echo $_dld_color_title; ?>}
+
+                /*.block-todaydeal .block-content{background: <?php echo colourBrightness($_dld_color_title,0.1);?>}*/
+                .block-todaydeal .block-content a.product-name{color: <?php echo colourBrightness($_dld_color_title,-0.7);?>}
+                .block-todaydeal .special-price .price{color: <?php echo $_dld_color_lighight;?>}
+                .block-todaydeal .mw_dld_detail ul li span.mw_dld_detail_num{color: <?php echo $_dld_color_lighight;?>}
+                .dailydeal-qty-box .deal-qty{color: <?php echo $_dld_color_lighight;?>}
+                .block-todaydeal .counter ul.countdown li div.countdown_num span{background: <?php echo $_dld_color_coundown; ?>}
+                .block-todaydeal button.button span{background: <?php echo $_dld_color_title; ?>; border: 1px solid <?php echo $_dld_color_title; ?>;}
+                .block-todaydeal button.button span span{background: none; border: 0px none;}
+                .block-todaydeal{border: 1px solid <?php echo $_dld_color_title; ?>\9;}
+
+			</style>
+
+
+            <div class="block block-todaydeal" >
+                <div class="title">
+                    <?php if ($title == '') { ?>
+                        <h3><?php echo $this->__('Get it before it&acute;s gone!'); ?></h3>
+                    <?php } else { ?>
+                        <!--<h3><?php echo $title; ?></h3>-->
+                        <img src="<?php echo $this->getSkinUrl('images/limited.png');?>" alt="">
+                    <?php } ?>
+                </div>
+                <div class="block-content">
+
+                    <a href="<?php echo Mage::getBaseUrl() . $_product->getUrlPath() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image deal_link">
+                        <img class="deal_product_img" src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image'); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+                    </a>
+
+                    <div class="dailydeal_brand_div">
+                        <a class="dailydeal_brand" href="<?php echo $_product->getProductUrl(); ?>" title="<?php echo $_product->getName(); ?>">
+                            <span>
+                                <?php echo $_product->getAttributeText("brand"); ?>
+                            </span>
+                        </a>
+                    </div>
+
+                    <div class="dailydeal_name_div">
+                        <a class="dailydeal_brand" href="<?php echo $_product->getProductUrl(); ?>" title="<?php echo $_product->getName(); ?>">
+                            <span class="dailydeal_product_name">
+                                <?php echo $_product->getName(); ?>
+                            </span>
+                        </a>
+                    </div>
+
+                    <div class="dailydeal_brand">
+                        <span class="dailydeal_supply_span">
+                            Limited Supply
+                            <br>
+                            Sale:<?php echo Mage::helper('core')->currency($_product->getFinalPrice(), true, false);?>
+                        </span>
+                    </div>
+
+                    <!-- Countdown Javascript -->
+                    <div id="counter" class="counter">
+                        <ul class="countdown">
+                            <li class="first dailydeal_day_li">
+                                <div class="countdown_num" id="cd_day-<?php echo $_deal->getDailydealId() ?>"></div><div id="cd_day"></div></li>
+                            <li>
+                                <div class="countdown_num" id="cd_hour-<?php echo $_deal->getDailydealId() ?>"></div><div id="cd_hour"></div></li>
+                            <li>
+                                <div class="countdown_num" id="cd_min-<?php echo $_deal->getDailydealId() ?>"></div><div id="cd_minute"></div></li>
+                            <li class="last">
+                                <div class="countdown_num" id="cd_sec-<?php echo $_deal->getDailydealId() ?>"></div><div id="cd_second"></div></li>
+                        </ul>
+                        <div class="clear"><span>&nbsp;</span></div>
+                    </div>
+                    <div id="expired" style="display:none;">
+                        <?php echo Mage::helper('dailydeal')->__('The deadline has passed.'); ?>
+                    </div>
+                </div>
+            </div>
+            <?php $remain_second = strtotime($_deal->getEndDateTime()) - Mage::getModel('core/date')->timestamp(); ?>
+            <script type="text/javascript">
+                var todaydeal_server_time = {
+                    second : <?php echo $remain_second; ?>,
+                    callback : '',
+
+                    id_day  : 'cd_day-' + <?php echo $_deal->getId(); ?>,
+                    id_hour  : 'cd_hour-' + <?php echo $_deal->getId(); ?>,
+                    id_minute  : 'cd_min-' + <?php echo $_deal->getId(); ?>,
+                    id_second  : 'cd_sec-' + <?php echo $_deal->getId(); ?>,
+
+                    label_day : 'cd_day',
+                    label_hour : 'cd_hour',
+                    label_minute : 'cd_minute',
+                    label_second : 'cd_second',
+
+					label_day_value : '<?php echo Mage::helper('dailydeal')->__('Day'); ?>',
+                    label_hour_value : '<?php echo Mage::helper('dailydeal')->__('Hours'); ?>',
+                    label_minute_value : '<?php echo Mage::helper('dailydeal')->__('Mins'); ?>',
+                    label_second_value : '<?php echo Mage::helper('dailydeal')->__('Secs'); ?>'
+                };
+                countDownSecond(todaydeal_server_time);
+            </script>
+            <?php break; ?>
+        <?php } ?>
+    <?php endforeach; ?>
+<?php endif; ?>
+

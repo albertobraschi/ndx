@@ -1,0 +1,59 @@
+<?php $_featured_products=$this->getFeaturedProducts();
+ ?>
+<?php
+    if(count($_featured_products) > 0):?>
+
+    <div class="featured_div">
+
+
+        <ul class="products-grid clearfix random">
+            <?php
+                foreach($_featured_products as $_product):
+                    $cProduct = Mage::getModel("catalog/product");
+                    $cProduct->load($_product->getId());
+            ?>
+            <li class="four columns item item<?php echo $i;?>  <?php echo $li_class;?>">
+                <a href="<?php echo $cProduct->getProductUrl(); ?>" title="No upsell" class="url product-image">
+                    <img class="photo fn" src="<?php echo $this->helper('catalog/image')->init($cProduct, 'image')->resize(300); ?>" width="220" alt="<?php echo $this->htmlEscape($this->getImageLabel($cProduct, 'small_image')) ?>">
+                </a>
+
+                <h2 class="item fn product-name">
+                    <a href="<?php echo $cProduct->getProductUrl(); ?>" title="<?php echo $cProduct->getName(); ?>"><?php echo $cProduct->getAttributeText("manufacturer"); ?></a>
+                </h2>
+
+                <h2 class="item fn product-name">
+                    <a class="featuredName" href="<?php echo $cProduct->getProductUrl(); ?>" title="<?php echo $cProduct->getName(); ?>"><?php echo $cProduct->getName(); ?></a>
+                </h2>
+
+                <div class="price-box">
+                    <span class="regular-price" id="product-price-<?php echo $cProduct->getId();?>">
+                        <span class="price"><?php echo Mage::helper('core')->currency(number_format($cProduct->getPrice(),2));?></span>
+                    </span>
+
+                </div>
+
+                <!-- <a href="<?php echo Mage::helper('checkout/cart')->getAddUrl($cProduct);?>">
+                    <img src="<?php echo $this->getSkinUrl('images/right-red-arrow.png');?>" class="redarrow">
+                </a> -->
+
+                <!--<div class="actions">
+                    <button type="button" title="Add to Cart" class="button btn-cart" onclick="setLocation('<?php echo Mage::helper('checkout/cart')->getAddUrl($cProduct);?>')"><span><span>Add to Cart</span></span></button>
+                    <ul class="add-to-links">
+                        <li class="wishlist"><a href="<?php echo $this->helper('wishlist')->getAddUrl($cProduct);?>" class="link-wishlist">+Wishlist</a></li>
+                        <li class="compare"> <a href="<?php echo $this->helper('catalog/product_compare')->getAddUrl($cProduct);?>" class="link-compare">+Compare</a></li>
+                    </ul>
+                </div>-->
+            </li>
+            <?php
+                endforeach;
+        ?>
+
+    </ul>
+    <?php //print_r($_product);?>
+
+    <?php // Product Image ?>
+
+</div>
+<?php
+    endif;
+?>

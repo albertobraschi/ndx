@@ -1,0 +1,64 @@
+<!--@subject {{var store.getFrontendName()}} Gift Card@-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"skin url=\"images/logo_email.gif\" _area='frontend'":"Email Logo Image",
+"var store.getFrontendName()":"Store Name"}
+@-->
+<!--@styles
+body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
+@-->
+
+<body style="background:#F6F6F6; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:12px; margin:0; padding:0;">
+<div style="background:#F6F6F6; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:12px; margin:0; padding:0;">
+<table cellspacing="0" cellpadding="0" border="0" height="100%" width="100%">
+        <tr>
+            <td align="center" valign="top" style="padding:20px 0 20px 0">
+                <!-- [ header starts here] -->
+                <table bgcolor="FFFFFF" cellspacing="0" cellpadding="10" border="0" width="650" style="border:1px solid #E0E0E0;">
+                    <tr>
+                        <td valign="top">
+                            <a href="{{store url=""}}"><img src="{{var logo_url}}" alt="{{var logo_alt}}" style="margin-bottom:10px;" border="0"/></a></td>
+                    </tr>
+                <!-- [ middle starts here] -->
+                    <tr>
+                        <td valign="top">
+                            <h1 style="font-size:16px; font-weight:normal; line-height:16px; margin:0 0 11px 0;color:#FC4920;font-family:Arial;"">Hallo,</h1>
+                            <p style="font-size:12px; line-height:16px;  margin:0 0 16px 0;color:#686767;font-family:Arial;">Um Ihre {{var store.getFrontendName()}} Gift Card auszudrucken, klicken Sie auf folgenden Link: <a href="{{var data.link}}" style="color:#FC4920;">{{var data.link}}</a></p>
+                            <div style="border:1px solid #E0E0E0; font-size:12px; line-height:16px; margin:0; padding:18px 18px; background:#f9f9f9;color:#686767;font-family:Arial; "><img src="{{var data.picture}}" height="100" align="right" style="display:inline;"/><p>
+                      					<strong>Gift Card Details:</strong><br /><br />
+                      					{{depend data.email-to}}<strong>An:</strong> {{var data.email-to}}<br />{{/depend}}
+                      					{{depend data.email-from}}<strong>Von:</strong> {{var data.email-from}}<br />{{/depend}}
+                      					{{depend data.email-message}}<strong>Nachricht:</strong> {{var data.email-message}}{{/depend}}
+                            </div>
+                            </p><br />
+                            <p style="font-size:12px; line-height:16px;  margin:0 0 16px 0;color:#686767;font-family:Arial;">
+                                <strong>Gift Card Wert:</strong> {{var data.amount}}<br />
+                              	<strong>Gift Card Einl&ouml;sung-Code:</strong> {{var data.code}}
+                            </p> 
+                            <p style="font-size:12px; line-height:16px; margin:0 0 11px;color:#686767;font-family:Arial;">
+                              Einl&ouml;sen und Verwenden Ihrer Gift Card:
+                  						<ol style="font-size:12px; line-height:16px; margin:0;color:#686767;font-family:Arial;">
+                  							<li>Erstellen Sie ein Konto und melden Sie sich im <a href="{{store url=""}}" style="color:#FC4920;">{{store url=""}}</a> an.</li>
+                  							<li>L&ouml;sen Sie Ihre Karte im Men&uuml; Meine Gift Cards im Mein Benutzerkonto-Bereich ein.</li>
+                  							<li>Alternativ k&ouml;nnen Sie Ihre Karte im Warenkorb oder w&auml;hrend der Bezahlung einl&ouml;sen.</li>
+                  						</ol>                            
+                            </p>                           
+                            <p style="font-size:12px; line-height:16px; margin:0;color:#686767;font-family:Arial;">Falls Sie Fragen oder Anregungen zu Ihrem Einkauf haben, kontaktieren Sie uns bitte wahlweise per E-Mail
+							<a href="mailto:{{config path='trans_email/ident_support/email'}}" style="color:#FC4920;">{{config path='trans_email/ident_support/email'}}</a>
+							oder auch gerne per Telefon unter der Rufnummer {{config path='general/store_information/phone'}}.</p>
+                        </td>
+                    </tr>
+                    <tr>
+              				<td align="center" style="text-align: center;">
+              					<center><img src="https://revolvet.com/images/gift-cards/giftcard_bottom.png" /></center>
+              				</td>
+              			</tr>
+                    <tr>
+                       <td bgcolor="#EAEAEA" align="center" style="background:#EAEAEA; text-align:center;"><center><p style="font-size:12px; margin:0;color:#686767;font-family:Arial;">Vielen Dank f&uuml;r Ihr Vertrauen! <strong style="color:#FC4920;font-weight:normal !important;">{{var store.getFrontendName()}}</strong></p></center></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>

@@ -1,0 +1,125 @@
+<?php
+    /**
+    * Magento
+    *
+    * NOTICE OF LICENSE
+    *
+    * This source file is subject to the Academic Free License (AFL 3.0)
+    * that is bundled with this package in the file LICENSE_AFL.txt.
+    * It is also available through the world-wide-web at this URL:
+    * http://opensource.org/licenses/afl-3.0.php
+    * If you did not receive a copy of the license and are unable to
+    * obtain it through the world-wide-web, please send an email
+    * to license@magentocommerce.com so we can send you a copy immediately.
+    *
+    * DISCLAIMER
+    *
+    * Do not edit or add to this file if you wish to upgrade Magento to newer
+    * versions in the future. If you wish to customize Magento for your
+    * needs please refer to http://www.magentocommerce.com for more information.
+    *
+    * @category    design
+    * @package     base_default
+    * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+    * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+    */
+    /**
+    * @var Mage_Page_Block_Html_Header $this
+    */
+?>
+
+<!-- Logo -->
+
+<div class="languageswitcher"><?php echo $this->getChildHtml('store_language') ?></div>
+
+<div class="sixteen columns">
+    <?php if ($this->getIsHomePage()):?>
+        <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
+       		<?php else:?>
+        <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
+        <?php endif?>
+
+    <div class="nine columns accountInfo">
+        <ul>
+            <li><a href="/pages/store-locations/">Locations</a> | </li>
+            <li style="display:"><a href="<?php echo Mage::getUrl('customer/account');?>">My Account</a> | </li>
+            <li style="display:">
+                <a href="<?php echo Mage::getUrl('customer/account/create/');?>" onclick="">Create an account</a> | </li>
+            <li style="display:">
+
+                     <a href="<?php echo Mage::helper('checkout/cart')->getCartUrl();?>" onclick="">
+                        <img src="<?php echo $this->getSkinUrl('images/cart-icon.png')?>"/>Cart 
+                        <span class="cart_items">
+                            <?php echo Mage::helper('checkout/cart')->getItemsCount(); ?>
+                        </span>
+                     </a>
+
+            </li>
+
+        </ul>
+    </div>
+    <div class="thirteen columns search_div">
+        <div class="six columns freeshipping_img">
+            <img src="<?php echo $this->getSkinUrl('images/freeshipping.jpg');?>"/>
+        </div>
+        <div class="seven columns topsearch">
+            <?php echo $this->getChildHtml('topSearch') ?>
+        </div>
+        <!--<div class="four columns topcart">
+
+        </div>-->
+    </div>
+
+
+
+</div><!--logo-->
+
+
+<!--toplinks-->
+
+<div class="sixteen columns navigation">
+
+    <?php echo $this->getChildHtml('topMenu') ?>
+
+</div><!--navigation-->
+
+
+
+
+<?php echo $this->getChildHtml('topContainer'); ?>
+
+<div class="EventHolder Content">
+    <ul>
+       <li class="Block Moveable Panel first">
+           <a href="<?php echo Mage::getBaseUrl();?>"><span><img src="<?php echo $this->getSkinUrl('images/dol.jpg');?>"/> </span></a>
+      </li>
+       
+       <li class="Block Moveable Panel">
+           <a href="/steals-deals.html"><span>STEALS & DEALS</span></a>
+      </li>
+      <li class="Block Moveable Panel">
+          <a href="<?php echo $this->getUrl('culinary-center');?>"><span>CLASSES & EVENTS</span></a>
+      </li>
+      <li class="Block Moveable Panel">
+            <a href="<?php echo $this->getUrl('gift-registry');?>"><span>GIFT REGISTRY</span></a>
+      </li>
+
+        <li class="Block Moveable Panel">
+          <a href="<?php echo Mage::getBaseUrl();?>"><span>GIFT CARDS</span></a>
+        </li>
+        <li class="Block Moveable Panel">
+            <a href="<?php echo $this->getUrl('knife-sharpening');?>"><span>KNIFE SHARPENING</span></a>
+        </li>
+        <li class="Block Moveable Panel">
+            <a href="<?php echo $this->getUrl('whats-new');?>"><span>WHAT'S NEW</span></a>
+        </li>
+
+        <li class="Block Moveable Panel" style="border-right:none">
+            <a href="<?php echo Mage::getBaseUrl();?>">
+                <span>NEWSLETTERS</span>
+            </a>
+        </li>
+    </ul>
+
+</div>
+<div class="clearer"></div>

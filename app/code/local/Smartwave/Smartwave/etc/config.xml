@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category	Smartwave
+ * @package		Smartwave_Smartwave
+ * @author		EternalFriend
+ * @copyright	Copyright 2014 Smartwave
+ */
+-->
+<config>
+    <modules>
+        <Smartwave_Smartwave>
+            <version>0.0.1</version>
+        </Smartwave_Smartwave>
+    </modules>    	
+    <global>
+        <blocks>
+            <smartwave>
+                <class>Smartwave_Smartwave_Block</class>
+            </smartwave>
+        </blocks>
+        <helpers>
+            <smartwave>
+                <class>Smartwave_Smartwave_Helper</class>
+            </smartwave>
+        </helpers>
+        <models>
+            <smartwave>
+                <class>Smartwave_Smartwave_Model</class>
+            </smartwave>
+        </models>
+    </global>
+</config>

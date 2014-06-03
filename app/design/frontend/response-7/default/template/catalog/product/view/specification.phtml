@@ -1,0 +1,29 @@
+<?php $product = $this->getProduct() ?>
+<div class="ten columns specification_brand_div clearfix">
+     <div class="four columns">
+           <span>
+                Brand:
+           </span>
+     </div>
+
+     <div class="five columns">
+           <?php echo $product->getAttributeText("brand"); ?>
+     </div>
+</div>
+<div class="ten columns specification_brand_div clearfix">
+     <div class="four columns">
+           <span>
+                Brand:
+           </span>
+     </div>
+
+     <div class="five columns">
+            <span>
+                <?php echo $product->getAttributeText("brand"); ?>
+            </span>
+
+     </div>
+</div>
+<?php
+
+?>

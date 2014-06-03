@@ -1,0 +1,72 @@
+<?php 
+/**
+* template: product_view_media
+* @var $_product    Mage_Catalog_Model_Product
+* @author           EternalFriend
+* @copyright        Copyright 2014 Smartwave
+* */                         
+?>
+
+<?php 
+    $_product = $this->getProduct();    
+    $_helper = $this->helper('catalog/output');
+    $helpZoom = $this->helper('smartwave_zoom');
+    $helpImg = $this->helper('smartwave/image');
+    
+//  Get Main Image Sizes.
+    $imgOpt = $helpZoom->getMainImgOptions();    
+//  Get Image Options after zoom
+    $bigImgOpt = $helpZoom->getBigImgOptions();
+    
+//  Get Image Poition Style
+
+//  odify gallery slider depending on gallery position
+    if ($helpZoom->getConfig('gallery/ga_position') == 'left')
+        $pos_class = 'ver-img ver-img-right';
+    else if( $helpZoom->getConfig('gallery/ga_position') == 'right')
+        $pos_class = 'ver-img ver-img-left';
+    else
+        $pos_class = 'hor-img';
+        
+//  Main Image Style. If there is more images, image class is has-more-img, else has-no-more-img    
+    $imgCount = count($this->getGalleryImages());
+    if ($imgCount > 0)
+        $imgClass = 'has-more-img';
+    else
+        $imgClass = 'has-no-more-img';
+?>
+
+<?php // main image ?>
+<div class="img-box img-box-style">
+    <?php 
+        if ($_product->getImage() != 'no_selection' && $_product->getImage()):  //has product image
+    ?>
+    <div class="product-image">
+        <?php
+            if ($helpZoom->getConfig('gallery/ga_position') != 'bottom') 
+                echo $this->getChildHtml('info.gallery'); 
+        ?>
+        <div class="zoom-img <?php echo $pos_class ?> <?php echo $imgClass ?>">            
+            <img id="zoom_img" class="main-zoom-img" src="<?php echo $helpImg->getImage($_product, $imgOpt['img_width'], $imgOpt['img_height'], 'image'); ?>" data-zoom-image="<?php echo $helpImg->getImage($_product, $bigImgOpt['img_width'], $bigImgOpt['img_height'], 'image'); ?>" alt="<?php echo $this->escapeHtml($this->getImageLabel());?>" title="<?php echo $this->escapeHtml($this->getImageLabel());?>" />
+            <?php echo $this->getChildHtml('info.lightbox'); ?>
+        </div>
+        <?php
+            if ($helpZoom->getConfig('gallery/ga_position') == 'bottom') 
+                echo $this->getChildHtml('info.gallery'); 
+        ?>
+    </div>
+    <?php else: //has no image?>
+    <div class="product-image">
+        <?php 
+        $_img = '<img class="main-zoom-img" src="'.$this->helper('catalog/image')->init($_product, 'image')->resize($imgWidth).'" alt="'.$this->escapeHtml($this->getImageLabel()).'" title="'.$this->escapeHtml($this->getImageLabel()).'" />';
+        echo $_helper->productAttribute($_product, $_img, 'image');
+        ?>
+    </div>
+    <?php endif; ?>
+</div>
+<script type="text/javascript">
+jQuery(function($){
+    $(".zoom-img #zoom_img").elevateZoom({gallery:'prod_gallery',zoomWindowOffetx:10,<?php echo $helpZoom->getZoomOptions()?>});
+});
+</script>
+

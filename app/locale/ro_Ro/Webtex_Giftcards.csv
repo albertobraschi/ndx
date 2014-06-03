@@ -1,0 +1,92 @@
+Manage Gift Cards,Gestioneaza certificatele cadou
+Add New Gift Card,Adauga un nou certificat cadou
+Save Gift Card,Salveaza certificatul cadou
+Delete Gift Card,Sterge certificatul cadou
+Resend Gift Card,Retrimite certificatul cadou
+Edit Gift Card \'%s\',Modifica certificatul cadou \'%s\'
+New Gift Card,Creeaza un nou certificat cadou
+Card ID,Card ID
+Card Code,Card Code
+Initial Value,Valoare initiala
+Current Balance,Sold curent
+Order,Comanda
+View,Vizualizare
+Date Created,Data crearii
+Card Type,Tip certificat
+Print,Tipareste
+E-mail,E-mail
+Offline,Offline
+Status,Status
+Active,Activ
+Inactive,Inactiv
+Delete,Sterge
+Are you sure?,Sunteti sigur(a)?
+Resend,Retrimite
+Manage Gift Cards,Gestioneaza certificatele cadou
+Gift Card Information,Informatii certificat cadou
+Gift Card Information,Informatii certificat cadou
+Gift Card Info,Informatii certificat cadou
+Card Code,Cod certificat
+Initial Value,Valoare initiala
+Order,Comanda
+Initial Value,Valoare initiala
+Current Balance,Sold curent
+Status,Status
+Active,Activ
+Inactive,Inactiv
+Gift Card Type,Tip certificat cadou
+E-mail,E-mail
+Print,Tipareste
+Recipient Info,Informatii destinatar
+Offline Address (for offline cards only),Adresa fizica (for certificate trimis prin posta)
+To Name,Catre
+To Email,Trimis catre email
+From Name,De la
+Message,Mesaj
+Card amount is not within the specified range.,Valoare certificatului nu este in intervalul specificat.
+%s was added to your shopping cart.,%s a fost adaugat la cosul de cumparaturi.
+Cannot add the item to shopping cart.,Nu se poate adauga in cosul de cumparaturi.
+To redeem your gift card or to use your gift card balance you need to be logged in.,Pentru a folosi sau vizualiza soldul trebuie sa fiti autentificat.
+"Gift Card ""%s"" was applied.","Certificatul cadou ""%s"" a fost utilizat."
+"Gift Card ""%s"" is not valid.","Certificatul cadou ""%s"" nu este valid."
+To redeem your gift card or to use your gift card balance you need to be logged in.,Pentru a folosi sau vizualiza soldul trebuie sa fiti autentificat.
+To redeem your gift card you need to be logged in.,Pentru a folosi sau vizualiza soldul trebuie sa fiti autentificat.
+"Gift Card ""%s"" was applied.","Certificatul cadou ""%s"" a fost utilizat."
+"Gift Card ""%s"" is not valid.","Certificatul cadou ""%s"" nu este valid."
+Gift Cards,Certificate cadou
+Gift Card,Certificat cadou
+Card does not exists,Certificat cadou nu exista
+Gift card was successfully saved,Certificat cadou a fost salvat
+Unable find gift card to save,Nu gasesc certificatul cadou pentru a-l salva
+Gift card was successfully deleted,Certificatul cadou a fost sters cu succes
+Please select gift card(s),Va rog selectati certificatul cadou
+Total of %d geftcard(s) were successfully deleted,%d certificate cadou au fost sterse cu succes
+Please select gift card(s),Va rog selectati certificatul cadou
+%d giftcard(s) were successfully resent,%d certificate cadou au fost retrimise cu succes
+There was an error processing your order. Please contact us or try again later.,"Am intampinat o eroare la procesarea comenzii. Va rugam sa ne contactati sau sa incercati mai tarziu,"
+Please specify the product\'s option(s).,Va rugam sa specificati optiunile produsului.
+My Gift Cards,Certificatele mele cadou
+My Gift Card balance,Soldul meu pentru certificate cadou
+Enter the Gift Card code,Introduceti codul certificatului cadou
+Redeem,Rascumparare
+Card Type,Tip certificat cadou
+Move to Wishlist,Muta in lista de dorinte
+Gift Gards,Certificate cadou
+Use my Gift Card balance.,Utilizeaza soldul curent.
+Or redeem and use your Gift Card now:,Sau rascumpara un certificat cadou acum:
+Redeem and Use,Rascumpara si utilizeaza
+"To use your gift cards, please <a href=""%s"">register</a> or <a href=""%s"">log in</a>.","Pentru a utiliza certificatul cadou va rugam sa va <a href=""%s"">inregistrati</a> sau <a href=""%s"">autentificati</a>."
+Choose the type of Gift Card,Selecteaza tipul certificatului cadou
+E-mail Gift Card (to someone or yourself),Trimite certificatul cadou prin email sau tie
+Print-Out Gift Card,Tipareste certificatul cadou
+Amount,Valoarea
+Recipient E-mail,Email destinatar
+To,Catre
+From,De la 
+Message,Mesaj
+Used Gift Cards,Certificate cadou utilizate
+Total Gift Cards Amount,Valoare totala certificate cadou
+Redeem and use your Gift Card now,Rascumpara sau utilizeaza un certificat cadou acum
+Check Gift Card Balance:,Verifica soldul certificatelor cadou
+Purchased Gift Cards,Certificate cadou achizitionate
+Used Gift Cards,Certificat cadou utilizate

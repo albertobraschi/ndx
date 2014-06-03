@@ -1,0 +1,86 @@
+<?php
+/**
+* template: product_view_media
+* @var $_product    Mage_Catalog_Model_Product
+* @author           EternalFriend
+* @copyright        Copyright 2014 Smartwave
+* */
+?>
+
+<?php
+    $_product = $this->getProduct();
+    $helpImg = $this->helper('smartwave/image');
+    $helpZoom = $this->helper('smartwave_zoom');
+
+    $ctrWidth = 40;
+//  Gallery Item Image Option
+    $itemImgOpt = $helpZoom->getGalItemOptions();
+
+//  Get Main Image Option
+    $imgOpt = $helpZoom->getMainImgOptions();
+
+//Get Image Options after zoom
+    $bigImgOpt = $helpZoom->getBigImgOptions();
+
+//  Get Lightbox Image Options
+    $lbImgOpt = $helpZoom->getLBImgOptins();
+
+    $helpZoom->getItemStyle();
+?>
+
+<?php
+    $imgCount = count($this->getGalleryImages());
+//  odify gallery slider depending on gallery position
+    if ($helpZoom->getConfig('gallery/ga_position') == 'left')
+        $pos_class = 'ver-gallery ver-gallery-left';
+    else if( $helpZoom->getConfig('gallery/ga_position') == 'right')
+        $pos_class = 'ver-gallery ver-gallery-right';
+    else
+        $pos_class = 'hor-gallery';
+?>
+
+<?php if ($imgCount > 0): ?>
+    <div class="more-images item-slider bx-slider clearfix <?php echo $pos_class; ?>">
+        <?php if($imgCount > $helpZoom->getConfig('gallery/ga_item_num')): ?>
+            <div class="gal-controls gal-prev"></div>
+        <?php endif; ?>
+        <?php
+
+        ?>
+        <div class="gal-wrapper">
+            <div class="thumbnails slides" id="prod_gallery">
+                <?php // Display thumbnails with zoom or lightbox ?>
+                <?php foreach($this->getGalleryImages() as $_image): ?>
+                    <?php // If no image, skip
+                        if ($_image->getFile() == NULL)
+                            continue;
+                    ?>
+                    <a title="<?php echo $this->escapeHtml($_image->getLabel()); ?>" class="slide" data-image="<?php echo $helpImg->getImage($_product, $imgOpt['img_width'], $imgOpt['img_height'], 'image', $_image->getFile()); ?>" data-zoom-image="<?php echo $helpImg->getImage($_product, $bigImgOpt['img_width'], $bigImgOpt['img_height'], 'image', $_image->getFile()); ?>" data-lt-image="<?php echo $helpImg->getImage($_product, $lbImgOpt['img_width'], $lbImgOpt['img_height'], 'image', $_image->getFile()); ?>">
+                        <img src="<?php echo $helpImg->getImage($_product, $itemImgOpt['img_width'] - $itemImgOpt['img_border'], $itemImgOpt['img_height'] - $itemImgOpt['img_border'], 'thumbnail', $_image->getFile()); ?>" alt="<?php echo $this->escapeHtml($_image->getLabel()); ?>" id="zoom_img"/>
+                    </a>
+                <?php endforeach; ?>
+            </div>
+        </div>
+        <?php if($imgCount > $helpZoom->getConfig('gallery/ga_item_num')): ?>
+            <div class="gal-controls gal-next"></div>
+        <?php endif; ?>
+    </div>
+    <script type="text/javascript">
+        //<![CDATA[
+            jQuery(function($){
+                $('#prod_gallery').bxSlider({
+                    <?php echo $helpZoom->getGalleryOptions() ?>,
+                    <?php if($imgCount > $helpZoom->getConfig('gallery/ga_item_num')): ?>
+                    wrapper_class:'gal-wrapper',
+                    prevText:'prev',
+                    prevSelector: $('.gal-controls.gal-prev'),
+                    nextText:'next',
+                    nextSelector: $('.gal-controls.gal-next')
+                    <?php else: ?>
+                    controls: false
+                    <?php endif; ?>
+                });
+            });
+        //]]
+    </script>
+<?php endif; ?>

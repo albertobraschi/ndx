@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+    	<reference name="top.links">
+			<block type="featuredcategory/featuredcategory" name="featuredcategory.link">
+				<action method="addLinkCategory"></action>
+		    </block>
+        </reference>
+        <reference name="head">
+			 <action method="addCss"><stylesheet>css/featuredcategory.css</stylesheet></action>
+             <action method="addItem" ifconfig="zoom/general/enable"><type>skin_css</type><name>css/gallery/jquery.bxslider.css</name></action>
+             <!--<action method="addJs" ifconfig="zoom/general/enable"><script>smartwave/jquery/plugins/gallery/jquery.bxslider.min.js</script></action>-->
+		</reference>
+    </default>
+    <featuredcategory_index_index>
+    	<reference name="root">
+            <action method="setTemplate"><template>page/2columns-right.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="featuredcategory/featuredcategory" name="featuredcategory" template="featuredcategory/featuredcategory.phtml" />
+        </reference>
+    </featuredcategory_index_index>
+</layout>

@@ -1,0 +1,37 @@
+			<?php
+                $catCollection=$this->getFeaturedCategoryCollection();
+            ?>
+            <div class="featured_cat_div">
+                <h3 class="featuredcategory_list_head"><?php echo $this->__('Featured Categories') ?></h3>
+
+                <ul class="products-grid clearfix random">
+                    <?php
+                        foreach($catCollection as $cat):
+
+                    ?>
+                    <li class="four columns item item<?php echo $i;?>  <?php echo $li_class;?>">
+                        <div class="product_area">
+                            <a href="<?php echo $cat->getUrl(); ?>" title="No upsell" class="url product-image">
+                                <img class="photo fn" src="<?php echo $cat->getImageUrl(); ?>" width="200" alt="<?php echo $this->htmlEscape($this->getImageLabel($cat, 'small_image')) ?>">
+                            </a>
+                            <div class="product_title">
+                                <h2 class="item fn product-name">
+                                    <a href="<?php echo $cat->getUrl(); ?>" title="<?php echo $cat->getName(); ?>">
+                                        <?php echo $cat->getName(); ?>
+                                    </a>
+                                </h2>
+                            </div>
+                        </div>
+
+
+
+
+                    </li>
+                    <?php
+                        endforeach;
+                    ?>
+
+                </ul>
+            </div>
+
+

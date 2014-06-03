@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+    <!-- Product page -->
+    <catalog_product_view>
+
+        <reference name="head">
+            <!-- CSS -->
+            <action method="addItem" ifconfig="zoom/general/enable"><type>skin_css</type><name>css/gallery/jquery.bxslider.css</name></action>
+            <action method="addItem"
+                ifconfig="zoom/lightbox/lb_enable"><type>skin_css</type><name>css/fancybox/jquery.fancybox.css</name></action>
+            <action method="addItem" ifconfig="zoom/general/enable"><type>skin_css</type><name>css/zoom/zoom.css</name></action>
+            <action method="addItem" ifconfig="zoom/general/enable"><type>skin_css</type><name>css/gallery/gallery.css</name><params/></action>
+
+
+            <!-- js -->
+            <!--<action method="addJs"><script>smartwave/jquery/jquery-1.8.3.min.js</script></action>-->
+            <action method="addJs"><script>http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js</script></action>
+            <action method="addJs"><script>smartwave/jquery/jquery-noconflict.js</script></action>
+            <action method="addJs" ifconfig="zoom/general/enable"><script>smartwave/jquery/plugins/gallery/jquery.bxslider.min.js</script></action>
+            <action method="addJs"
+                ifconfig="zoom/general/enable"><script>smartwave/jquery/plugins/zoom/jquery.elevatezoom.js</script></action>
+            <action method="addJs"
+                ifconfig="zoom/lightbox/lb_enable"><script>smartwave/jquery/plugins/fancybox/jquery.fancybox.js</script></action>
+        </reference>
+
+        <reference name="product.info.media">
+            <action method="setTemplate" ifconfig="zoom/general/enable"><template>smartwave/zoom/product/view/media.phtml</template></action>
+            <block type="smartwave_zoom/product_view_gallery" name="product.info.gallery" as="info.gallery" template="smartwave/zoom/product/view/gallery.phtml" />
+            <block type="smartwave_zoom/product_view_lightbox" name="product.info.lightbox" as="info.lightbox" template="smartwave/zoom/product/view/lightbox.phtml" />
+        </reference>
+
+    </catalog_product_view>
+
+    <!-- Reviews page -->
+
+
+</layout>

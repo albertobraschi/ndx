@@ -1,0 +1,52 @@
+<?php
+//Lightbox for image  
+$helpZoom = $this->helper('smartwave_zoom');
+
+$options = $helpZoom->getLightBoxOptions();
+if($options):
+$_product = $this->getProduct();
+$helpImg = $this->helper('smartwave/image');
+$helpZoom = $this->helper('smartwave_zoom');
+$bigImgOpt = $helpZoom->getBigImgOptions();
+$pos_class = $options['position'];
+$lbImgOpt = $helpZoom->getLBImgOptins();
+?>
+
+<div class="light-icons <?php echo $pos_class;?>">
+    <a id="lightbox_icon">
+    <img src="<?php echo $options['icon']?>" alt="Zoom With Lightbox" title="Zoom With Lightbox">
+    <?php if($options['zoom_text']):?>
+        <span class="light-text" style="font-size:<?php echo $options['font_size'].'px'?>; color: <?php echo $options['font_color'] ?>;"><?php echo $options['zoom_text']?></span>
+        <style type="text/css">
+            #lightbox_icon {
+                height: <?php echo $options['font_size'].'px'?> ;
+                line-height: <?php echo $options['font_size'].'px'?>;                
+            }
+        </style>
+    <?php endif; ?>
+    </a>
+</div>
+
+<?php if(count($this->getGalleryImages()) > 0):?>
+<script type="text/javascript">
+    jQuery(function($){
+       $('#lightbox_icon').bind('click', function(e){
+          var ez =   $('.zoom-img #zoom_img').data('elevateZoom');
+          $.fancybox(ez.getGalleryList());
+          return false;
+       }); 
+    });
+</script>
+<?php else: ?>
+<script type="text/javascript">
+    jQuery(function($){
+        $('#lightbox_icon').bind('click', function(e){
+            $.fancybox({
+                'href': '<?php echo $helpImg->getImage($_product, $lbImgOpt['img_width'], $lbImgOpt['img_height']); ?>'
+            });
+        });
+    });
+</script>
+<?php endif; ?>
+
+<?php endif; ?>
