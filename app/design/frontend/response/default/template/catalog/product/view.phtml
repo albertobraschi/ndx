@@ -54,7 +54,43 @@
 	        <span class="brand_name">
 	           <a href="#"><?php echo $_product->getAttributeText("brand"); ?></a> 
 	        </span>
-	    </div>
+	    </div>                             
+        
+         <p class="brand">
+            <?php 
+              
+                
+              $category = Mage::registry('current_category');
+              $nocategory=false;
+              
+              if ($category == null){
+                $categoryIds = $_product->getCategoryIds();
+                
+                foreach($categoryIds as $categoryId){
+                     $category = Mage::getModel('catalog/category')->load($categoryId);   
+                     break;
+                } 
+              }
+              
+              if ($category!==null){
+                  $currenturl= $category->getUrl($category); 
+                  $brandurl="";
+              
+                   $pos = strpos($currenturl, '?'); //try to find question mark
+              
+                   if ($pos === false) {
+                       $brandurl=$currenturl."?manufacturer=".$_product->getManufacturer();
+                   }
+                   else{
+                       $brandurl=substr_replace($currenturl, "manufacturer=".$_product->getManufacturer(), $pos+1, 0);
+                   }            
+?>
+            <a href="<?php echo $brandurl; ?>"><?php echo $_product->getAttributeText("manufacturer"); ?> </a>
+<?php                   
+              }              
+            ?>
+            
+        </p>
 	    
 		<!-- Product Title -->
 	    <div class="six columns brand_div">

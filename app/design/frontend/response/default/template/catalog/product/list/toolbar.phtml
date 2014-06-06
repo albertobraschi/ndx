@@ -69,11 +69,18 @@
         </p>
         <?php endif; ?>
     
+        <?php 
+            $direction="asc";
+            if($this->getCurrentDirection() == 'desc'){
+                $direction="desc";    
+            }
+        ?>
+        
         <div class="sort-by">
             <label><?php echo $this->__('Sort By') ?></label>
             <select onchange="setLocation(this.value)">
             <?php foreach($this->getAvailableOrders() as $_key=>$_order): ?>
-                <option value="<?php echo $this->getOrderUrl($_key, 'asc') ?>"<?php if($this->isOrderCurrent($_key)): ?> selected="selected"<?php endif; ?>>
+                <option value="<?php echo $this->getOrderUrl($_key, $direction) ?>"<?php if($this->isOrderCurrent($_key)): ?> selected="selected"<?php endif; ?>>
                     <?php echo $this->__($_order) ?>
                 </option>
             <?php endforeach; ?>
@@ -84,6 +91,7 @@
                 <a href="<?php echo $this->getOrderUrl(null, 'desc') ?>" title="<?php echo $this->__('Set Descending Direction') ?>"><img src="<?php echo $this->getSkinUrl('images/i_asc_arrow.gif') ?>" alt="<?php echo $this->__('Set Descending Direction') ?>" class="v-middle" /></a>
             <?php endif; ?>
         </div>
+        
     </div>
     <?php endif; ?>
 </div>

@@ -55,7 +55,9 @@ class Mage_Catalog_Block_Product_List extends Mage_Catalog_Block_Product_Abstrac
      */
     protected function _getProductCollection()
     {
+        
         if (is_null($this->_productCollection)) {
+            
             $layer = $this->getLayer();
             /* @var $layer Mage_Catalog_Model_Layer */
             if ($this->getShowRootCategory()) {
@@ -84,8 +86,9 @@ class Mage_Catalog_Block_Product_List extends Mage_Catalog_Block_Product_Abstrac
                     $this->addModelTags($category);
                 }
             }
+            
             $this->_productCollection = $layer->getProductCollection();
-
+            
             $this->prepareSortableFieldsByCategory($layer->getCurrentCategory());
 
             if ($origCategory) {
@@ -136,6 +139,7 @@ class Mage_Catalog_Block_Product_List extends Mage_Catalog_Block_Product_Abstrac
      */
     protected function _beforeToHtml()
     {
+        
         $toolbar = $this->getToolbarBlock();
 
         // called prepare sortable parameters
@@ -148,6 +152,9 @@ class Mage_Catalog_Block_Product_List extends Mage_Catalog_Block_Product_Abstrac
         if ($sort = $this->getSortBy()) {
             $toolbar->setDefaultOrder($sort);
         }
+        
+        
+        
         if ($dir = $this->getDefaultDirection()) {
             $toolbar->setDefaultDirection($dir);
         }
@@ -242,6 +249,7 @@ class Mage_Catalog_Block_Product_List extends Mage_Catalog_Block_Product_Abstrac
             $this->setAvailableOrders($category->getAvailableSortByOptions());
         }
         $availableOrders = $this->getAvailableOrders();
+
         if (!$this->getSortBy()) {
             if ($categorySortBy = $category->getDefaultSortBy()) {
                 if (!$availableOrders) {
@@ -252,6 +260,8 @@ class Mage_Catalog_Block_Product_List extends Mage_Catalog_Block_Product_Abstrac
                 }
             }
         }
+        
+    
 
         return $this;
     }

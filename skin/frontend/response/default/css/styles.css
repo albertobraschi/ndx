@@ -1114,7 +1114,7 @@ margin: 0;
 			z-index: 100000000 !important;
             margin-top: 4px;
             background: black;
-            opacity: 0.85;
+            /*opacity: 0.85; */
 		}
 
 		li.topcart:hover .cartpop{
@@ -1398,9 +1398,7 @@ margin: 0;
 		text-transform: uppercase;
 	}
 
-
-
-
+  
 	.customer-account-create .form-list,
 	.account-login .form-list{
 		border:1px solid #ddd !important; border-top:0; padding:18px 18px; position:relative; background: white;
@@ -1593,9 +1591,9 @@ p.error-msg { font-size:12px !important; padding:10px; margin:10px 0; }
     line-height: 23px;
     font-family: "Open Sans",Arial,Helvetica,sans-serif;
 }
-.categories_div a span:hover{
+/*.categories_div a span:hover{
     border-bottom: 1px solid #cfcfcf;
-}
+}*/
 .category-title {
   color: #666666;
   font-family: "Open Sans",Arial,Helvetica,sans-serif;
@@ -2780,7 +2778,7 @@ h2.headerWho {
 
 .catalog-product-view .container .leftpart  {width: 420px !important;}
 
-.catalog-product-view .container .rightpart {width: 360px !important;margin-left: 3px !important;}
+.catalog-product-view .container .rightpart {width: 350px !important;margin-left: 3px !important; padding-left:10px; !important;}
 
 .catalog-product-view .container .block-related {width: 140px;padding-left: 10px;}
 
@@ -2930,3 +2928,15 @@ footer .addressinfo {
 }
 
 .paypal-or{display: none;}
+
+.cms-index-index .sixteen.columns.breadcrumbs {
+  display: none;
+}
+
+.featured_div a:hover {
+  text-decoration: underline;
+}
+
+.catalog-category-view .category-image {
+  display: none;
+}

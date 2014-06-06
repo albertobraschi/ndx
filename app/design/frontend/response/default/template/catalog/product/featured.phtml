@@ -16,9 +16,40 @@
                 <a href="<?php echo $cProduct->getProductUrl(); ?>" title="No upsell" class="url product-image">
                     <img class="photo fn" src="<?php echo $this->helper('catalog/image')->init($cProduct, 'image')->resize(300); ?>" width="220" alt="<?php echo $this->htmlEscape($this->getImageLabel($cProduct, 'small_image')) ?>">
                 </a>
-
+                
+                <?php 
+                        
+                    $categoryIds = $cProduct->getCategoryIds();
+                    $category = null;
+                    
+                    foreach($categoryIds as $categoryId){
+                         $category = Mage::getModel('catalog/category')->load($categoryId);   
+                         break;
+                    
+                    }
+                    
+                    if ($category!==null){   
+                        $currenturl= $category->getUrl($category); 
+                    
+                        $brandurl="";
+                      
+                        $pos = strpos($currenturl, '?'); //try to find question mark
+                      
+                       if ($pos === false) {
+                           $brandurl=$currenturl."?manufacturer=".$cProduct->getManufacturer();
+                       }
+                       else{
+                           $brandurl=substr_replace($currenturl, "manufacturer=".$cProduct->getManufacturer(), $pos+1, 0);
+                       }    
+                    }
+                    else{
+                         $brandurl= $cProduct->getProductUrl();
+                    }
+       
+                ?>
+                
                 <h2 class="item fn product-name">
-                    <a href="<?php echo $cProduct->getProductUrl(); ?>" title="<?php echo $cProduct->getName(); ?>"><?php echo $cProduct->getAttributeText("manufacturer"); ?></a>
+                    <a href="<?php echo $brandurl; ?>" title="<?php echo $cProduct->getName(); ?>"><?php echo $cProduct->getAttributeText("manufacturer"); ?></a>
                 </h2>
 
                 <h2 class="item fn product-name">

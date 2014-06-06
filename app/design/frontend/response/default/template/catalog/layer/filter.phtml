@@ -30,7 +30,9 @@
  *
  * @see Mage_Catalog_Block_Layer_Filter
  */
+ 
 ?>
+
 
 <ol class="clearfix">
 <?php foreach ($this->getItems() as $_item): ?>
@@ -42,6 +44,7 @@
         <?php if ($this->shouldDisplayProductCount()): ?>
         <?php //echo $_item->getCount() ?>
         <?php endif; ?>
+        
     </li>
 <?php endforeach ?>
 </ol>
