@@ -34,6 +34,9 @@
         $imgClass = 'has-more-img';
     else
         $imgClass = 'has-no-more-img';
+        
+    $imgWidth=409;
+    $imgHeight=409;
 ?>
 
 <?php // main image ?>
@@ -46,10 +49,29 @@
             if ($helpZoom->getConfig('gallery/ga_position') != 'bottom') 
                 echo $this->getChildHtml('info.gallery'); 
         ?>
-        <div class="zoom-img <?php echo $pos_class ?> <?php echo $imgClass ?>">            
-            <img id="zoom_img" class="main-zoom-img" src="<?php echo $helpImg->getImage($_product, $imgOpt['img_width'], $imgOpt['img_height'], 'image'); ?>" data-zoom-image="<?php echo $helpImg->getImage($_product, $bigImgOpt['img_width'], $bigImgOpt['img_height'], 'image'); ?>" alt="<?php echo $this->escapeHtml($this->getImageLabel());?>" title="<?php echo $this->escapeHtml($this->getImageLabel());?>" />
+        <?php 
+            $oH=$this->helper('catalog/image')->init($_product, 'image')->getOriginalHeight();
+            $oW=$this->helper('catalog/image')->init($_product, 'image')->getOriginalWidth();
+     
+        ?>
+        <div class="zoom-img <?php echo $pos_class ?> <?php echo $imgClass ?>">
+            <?php 
+            if ($oH>$oW){
+            ?>
+            <img id="zoom_img" class="main-zoom-img" 
+                src="<?php echo $this->helper('catalog/image')->init($_product, 'image')->resize($imgWidth*$oW/$oH,$imgHeight); ?>" 
+                data-zoom-image="<?php  echo $this->helper('catalog/image')->init($_product, 'image')->resize($bigImgOpt['img_width']*$oW/$oH, $bigImgOpt['img_height']); ?>" 
+                alt="<?php echo $this->escapeHtml($this->getImageLabel());?>" title="<?php echo $this->escapeHtml($this->getImageLabel());?>" />
+                
+            <?php    
+            }
+             ?> 
+            
             <?php echo $this->getChildHtml('info.lightbox'); ?>
-        </div>
+        </div> 
+                  sfdsf<?php 
+                  echo $oW."sdfsdf".$oH."xxx".$imgWidth;
+                  ?>
         <?php
             if ($helpZoom->getConfig('gallery/ga_position') == 'bottom') 
                 echo $this->getChildHtml('info.gallery'); 

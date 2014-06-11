@@ -10,7 +10,7 @@
 <config>
     <modules>
         <Smartwave_Smartwave>
-            <active>true</active>
+            <active>false</active>
             <codePool>local</codePool>
         </Smartwave_Smartwave>
     </modules>

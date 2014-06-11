@@ -87,14 +87,22 @@
              </li>
             <li class="">
                 <div>
-                    <a href="http://www.parkandmain.com/giftcertificates.php">Gift Certificates</a>
+                  <a href="/gift-certificate.html">Gift Certificates</a>
                 </div>
             </li>
             <!-- <li class="" style="display:"><a href="http://www.parkandmain.com/wishlist.php">Wish Lists</a></li> -->
 
-            <li class="CartLink " style="">
+            <li class="CartLink" >
                 <div>
-                    <a href="<?php echo $this->getUrl('checkout/cart')?>"><img src="<?php echo $this->getSkinUrl('images/cart-icon.png')?>"><font color="#ff0000;"></font></a>
+                    <a href="<?php echo $this->getUrl('checkout/cart')?>">
+                        <img src="<?php echo $this->getSkinUrl('images/cart-icon.png')?>">
+                        <font color="#ff0000;"></font>
+                    </a>
+                    <?php if (Mage::helper('checkout/cart')->getItemsCount()>0):?>    
+                	<span class="cart_items" style="color:#ff0000;">
+                       (<?php echo Mage::helper('checkout/cart')->getItemsCount(); ?>)
+                    </span>
+                    <?php endif; ?>
                 </div>
             </li>
 

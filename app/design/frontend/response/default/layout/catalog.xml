@@ -272,6 +272,14 @@ Product view
                         <template>catalog/product/view/specification.phtml</template>
                     </action> -->
                     
+                    <action method="addTab" translate="title" module="catalog">
+                        <alias>similar_products</alias>
+                        <title>Similar Products</title>
+                        <block>catalog/product_view_description</block>
+                        <template>catalog/product/view/similar.phtml</template>
+                     </action>
+                     
+                      
                       <action method="addTab" translate="title" module="catalog">
                         <alias>tab_review_list</alias>
                         <title>Product Reviews</title>

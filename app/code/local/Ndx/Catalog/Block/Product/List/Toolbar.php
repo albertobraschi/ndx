@@ -64,6 +64,7 @@ class Ndx_Catalog_Block_Product_List_Toolbar extends Mage_Catalog_Block_Product_
      */
     public function getCurrentOrder()
     {
+        
         $order = $this->_getData('_current_grid_order');
         if ($order) {
             return $order;
