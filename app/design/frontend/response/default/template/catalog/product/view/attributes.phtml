@@ -32,7 +32,12 @@
 ?>
 <?php
     $_helper = $this->helper('catalog/output');
-    $_product = $this->getProduct()
+    $_product = $this->getProduct();
+
+    $imported_attr = $_product->getResource()->getAttribute('imported');
+    $imported_value = $imported_attr ->getFrontend()->getValue($_product);
+
+
 ?>
 <?php if($_additional = $this->getAdditionalData()): ?>
     <h4><?php echo $this->__('Specifications') ?></h4>
@@ -43,10 +48,19 @@
         <?php foreach ($_additional as $_data): ?>
             <?php 
                 $_attribute = $_product->getResource()->getAttribute($_data['code']);
+         
+        $label=$this->htmlEscape($this->__($_data['label']));
+        
+        if ($imported_value=="Yes"){
+            if ($_attribute->getAttributeCode()=="country_of_manufacture"){
+            $label="Imported";
+            }
+        }
+
                 if (!is_null($_product->getData($_attribute->getAttributeCode())) && ((string)$_attribute->getFrontend()->getValue($_product) != '')) { 
             ?>
                 <tr>
-                    <th class="label"><?php echo $this->htmlEscape($this->__($_data['label'])) ?></th>
+                    <th class="label"><?php echo $label; ?></th>
                     <td class="data"><?php echo $_helper->productAttribute($_product, $_data['value'], $_data['code']) ?></td>
                 </tr>
             <?php } ?>

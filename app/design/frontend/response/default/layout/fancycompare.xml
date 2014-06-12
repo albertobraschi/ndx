@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<layout version="0.1.1">
+    <default>
+		<reference name="head">
+			<block type="core/text" name="google.cdn.jquery">
+				<action method="setText" ifconfig="fancycompareconfig/fancycompare_group/fancycompare_load_jq">
+					<text>
+						
+					</text>
+				</action>
+			</block>
+			<action method="addCss">
+				<stylesheet>fancycompare/css/fc.css</stylesheet>
+			</action>
+            <block type="fancycompare/fancycompare" name="fancycompare.footer" after="-" template="fancycompare/fc_footer.phtml" />
+		</reference>
+		<reference name="compare">
+			<block type="catalog/product_compare_sidebar" before="cart_sidebar" name="catalog.compare.sidebar">
+                <action method="setTemplate">
+                    <template>fancycompare/fancycompare.phtml</template>
+                </action>
+            </block>
+		</reference>
+		
+        <reference name="content">
+            
+            <block type="fancycompare/fancycompare" name="fancycompare" template="fancycompare/fancycompare.phtml" />
+        </reference>
+        
+        <reference name="footer">
+            <block type="fancycompare/fancycompare" name="fancycompare.footer" after="-" template="fancycompare/fc_footer.phtml" />
+            
+        </reference>
+    </default>
+    <fancycompare_index_index>
+        <reference name="content">
+            <block type="fancycompare/fancycompare" name="fancycompare" template="fancycompare/fancycompare.phtml" />
+        </reference>
+    </fancycompare_index_index>
+    <fancycompare_index_show>
+		<reference name="content">
+            <block type="fancycompare/product_compare_list" name="fancycompare.show" template="fancycompare/fclist.phtml" />
+        </reference>
+    </fancycompare_index_show>
+</layout>

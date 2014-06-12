@@ -202,6 +202,10 @@
                     <?php else: ?>
                         <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
                     <?php endif; ?>
+                    <?php 
+                        $htmlDescription = htmlspecialchars($_helper->productAttribute($_product, $_product->getName() , 'name'));
+                        
+                    ?>
                     <ul class="add-to-links">
 
                         <?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
@@ -209,9 +213,11 @@
                         <?php endif; ?>
 
                         <li class="pinit">
-                            <a href="//www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" ><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" /></a>
-                            <!-- Please call pinit.js only once per page -->
-                            <script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
+                             <a href="//www.pinterest.com/pin/create/button/?url=<?php echo Mage::helper('core/url')->getCurrentUrl(); ?>&media=<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(300); ?>&description=<?php echo $htmlDescription; ?>" 
+                                data-pin-do="buttonPin" data-pin-config="none">
+                                <img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" />
+                             </a>
+                            
                         </li>
                     </ul>
                 </div>
@@ -228,3 +234,5 @@
     </div>
 </div>
 <?php endif; ?>
+<!-- Please call pinit.js only once per page -->
+<script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>

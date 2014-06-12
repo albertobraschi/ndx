@@ -26,15 +26,30 @@
 ?>
 <?php $_product = $this->getProduct(); ?>
 <?php $buttonTitle = $this->__('Add to Cart'); ?>
+
 <?php if($_product->isSaleable()): ?>
     <div class="eight columns add-to-cart clearfix">
         <?php if(!$_product->isGrouped()): ?>
         <label for="qty"><?php echo $this->__('Quantity:') ?></label>
         <?php endif; ?>
+        
+        <?php 
+        
+            $qty=Mage::getModel('cataloginventory/stock_item')->loadByProduct($_product)->getQty();
+            $qty = intval($qty);
+            if ($qty>25)
+                $qty=25;
+            else if ($qty==0)
+                $qty=10;
+            
+        ?>
+        
         <select name="qty" id="qty" value="<?php echo $this->getProductDefaultQty() * 1 ?>" title="<?php echo $this->__('Qty') ?>" class="qty_select">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
+            <?php for ($i=1; $i <= $qty; $i++):?>
+            
+            <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+            
+            <?php endfor;?>    
         </select>
         <!--<input type="text" name="qty" id="qty" maxlength="12" value="<?php echo $this->getProductDefaultQty() * 1 ?>" title="<?php echo $this->__('Qty') ?>" class="input-text qty" />-->
         <button type="button" title="<?php echo $buttonTitle ?>" class="button btn-cart" onclick="productAddToCartForm.submit(this)">
