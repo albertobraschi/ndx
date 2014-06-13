@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * Ndx Catalog Custom Module
+ *
+ */
+-->
+<config>
+    <modules>
+        <Ndx_Customer>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Ndx_Customer>
+    </modules>
+</config>

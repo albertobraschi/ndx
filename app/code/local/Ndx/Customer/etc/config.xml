@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category	Smartwave
+ * @package		Smartwave_Smartwave
+ * @author		EternalFriend
+ * @copyright	Copyright 2014 Smartwave
+ */
+-->
+<config>
+    <modules>
+        <Ndx_Customer>
+            <version>0.0.1</version>
+        </Ndx_Customer>
+    </modules>    	
+    <frontend>
+        <routers>
+            <customer>                
+                <args>  
+                    <modules>  
+                      <!-- Use the module Spinonesolutions_Customer BEFORE Mage_Customer -->  
+                        <Ndx_Customer before="Mage_Customer">Ndx_Customer</Ndx_Customer>  
+                    </modules>  
+                  </args>                   
+            </customer>
+        </routers>        
+    </frontend>
+</config>
+
+                    
