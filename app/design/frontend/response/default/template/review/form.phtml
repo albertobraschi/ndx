@@ -25,12 +25,12 @@
  */
 ?>
 <div class="form-add clearfix">
-    <h4><?php echo $this->__('Write Your Own Review') ?></h4>
+    <h4><?php echo $this->__('Product Reviews') ?></h4>
     <?php if ($this->getAllowWriteReviewFlag()): ?>
     <form action="<?php echo $this->getAction() ?>" method="post" id="review-form">
         <fieldset class="clearfix">
             <?php echo $this->getChildHtml('form_fields_before')?>
-            <h5><?php echo $this->__("You're reviewing:"); ?> <span><?php echo $this->htmlEscape($this->getProductInfo()->getName()) ?></span></h5>
+            <!-- <h5><?php echo $this->__("You're reviewing:"); ?> <span><?php echo $this->htmlEscape($this->getProductInfo()->getName()) ?></span></h5> -->
             <?php if( $this->getRatings() && $this->getRatings()->getSize()): ?>
                 <h5><?php echo $this->__('How do you rate this product?') ?> <em class="required">*</em></h5>
                 <span id="input-message-box"></span>

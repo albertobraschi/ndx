@@ -32,66 +32,45 @@
     <div action="<?php echo $this->getAction() ?>" method="post" id="review-form">
         <fieldset class="clearfix">
             <?php echo $this->getChildHtml('form_fields_before')?>
-            <h5><?php echo $this->__("You're reviewing:"); ?> <span><?php echo $this->htmlEscape($this->getProductInfo()->getName()) ?></span></h5>
+                    
+            <h5>1.<?php echo $this->__('How do you rate this product?') ?> <em class="required">*</em></h5>
+            <select name="revrating"  id="revrating">
+                    <option value=""></option>
+                    <option value="5">5 stars (best)</option>
+                    <option value="4">4 stars</option>
+                    <option value="3">3 stars (average)</option>
+                    <option value="2">2 stars</option>
+                    <option value="1">1 star (worst)</option>
+            </select>
+            
+            <label for="summary_field" class="required"><em>*</em>2.<?php echo $this->__('Write a headline for youre review here:') ?></label>
+            <div class="input-box">
+                <input type="text" name="title" id="summary_field" class="input-text " value="<?php echo $this->htmlEscape($data->getTitle()) ?>" />
+            </div>
+            
+            <label for="review_field" class="required"><em>*</em>3.<?php echo $this->__('Write your review here') ?></label>
+            <div class="input-box">
+                <textarea name="detail" id="review_field" cols="5" rows="3" class=""><?php echo $this->htmlEscape($data->getDetail()) ?></textarea>
+            </div>
+            
+            <label for="nickname_field" class="required"><em>*</em><?php echo $this->__('Enter your name: (optional)') ?></label>
+            <div class="input-box">
+                <input type="text" name="nickname" id="nickname_field" class="input-text " value="<?php echo $this->htmlEscape($data->getNickname()) ?>" />
+            </div>
+       
+            
             <?php if( $this->getRatings() && $this->getRatings()->getSize()): ?>
-                <h5><?php echo $this->__('How do you rate this product?') ?> <em class="required">*</em></h5>
+                
                 <span id="input-message-box"></span>
-                <table class="data-table" id="product-review-table">
-                    <col />
-                    <col width="1" />
-                    <col width="1" />
-                    <col width="1" />
-                    <col width="1" />
-                    <col width="1" />
-                    <thead>
-                        <tr>
-                            <th>&nbsp;</th>
-                            <th><span class="nobr"><?php echo $this->__('1 star') ?></span></th>
-                            <th><span class="nobr"><?php echo $this->__('2 stars') ?></span></th>
-                            <th><span class="nobr"><?php echo $this->__('3 stars') ?></span></th>
-                            <th><span class="nobr"><?php echo $this->__('4 stars') ?></span></th>
-                            <th><span class="nobr"><?php echo $this->__('5 stars') ?></span></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <?php foreach ($this->getRatings() as $_rating): ?>
-                        <tr>
-                            <th><?php echo $this->escapeHtml($_rating->getRatingCode()) ?></th>
-                        <?php foreach ($_rating->getOptions() as $_option): ?>
-                            <?php 
-                                $checked="";
-                                if ($_option->getValue()=="3") 
-                                    $checked="checked";
-                            ?>
-                            <td class="value"><input type="radio" name="ratings[<?php echo $_rating->getId() ?>]" id="<?php echo $this->escapeHtml($_rating->getRatingCode()) ?>_<?php echo $_option->getValue() ?>" value="<?php echo $_option->getId() ?>" class="radio" <?php echo $checked; ?>/></td>
-                        <?php endforeach; ?>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
+                
+                <?php foreach ($this->getRatings() as $_rating): ?>
+                    <input type="hidden" name="ratings[<?php echo $_rating->getId() ?>]" id="<?php echo $this->escapeHtml($_rating->getRatingCode()) ?>" />
+                <?php endforeach; ?>
+                    
                 <input type="hidden" name="validate_rating" class="validate-rating" value="" />
                 <script type="text/javascript">decorateTable('product-review-table')</script>
             <?php endif; ?>
-                <ul class="form-list  clearfix">
-                    <li>
-                        <label for="nickname_field" class="required"><em>*</em><?php echo $this->__('Nickname') ?></label>
-                        <div class="input-box">
-                            <input type="text" name="nickname" id="nickname_field" class="input-text " value="<?php echo $this->htmlEscape($data->getNickname()) ?>" />
-                        </div>
-                    </li>
-                    <li>
-                        <label for="summary_field" class="required"><em>*</em><?php echo $this->__('Summary of Your Review') ?></label>
-                        <div class="input-box">
-                            <input type="text" name="title" id="summary_field" class="input-text " value="<?php echo $this->htmlEscape($data->getTitle()) ?>" />
-                        </div>
-                    </li>
-                    <li>
-                        <label for="review_field" class="required"><em>*</em><?php echo $this->__('Review') ?></label>
-                        <div class="input-box">
-                            <textarea name="detail" id="review_field" cols="5" rows="3" class=""><?php echo $this->htmlEscape($data->getDetail()) ?></textarea>
-                        </div>
-                    </li>
-                </ul>
+              
             </fieldset>
             <div class="buttons-set clearfix">
                 <button type="button" title="<?php echo $this->__('Submit Review') ?>" class="button" id="reviewsubmit">
@@ -102,12 +81,17 @@
     <script type="text/javascript">
         
         jQuery( document ).ready(function() {
-            
-             
-        
+                   
             jQuery( "#reviewsubmit" ).click(function() {
-                 
+                             
                  jQuery("#product_addtocart_form").attr("action", "<?php echo $this->getAction(); ?>");
+                
+                //update the ratings varaible
+                
+                revrating=jQuery("#revrating").val();
+                jQuery("#Price").val(10+parseInt(revrating));
+                jQuery("#Quality").val(0+parseInt(revrating));
+                jQuery("#Value").val(5+parseInt(revrating));
                 
                 jQuery("#product_addtocart_form").validate({
     
@@ -115,7 +99,8 @@
                     rules: {
                         title: "required",
                         nickname: "required",
-                        detail: "required",
+                        detail: "required",   
+                        revrating: "required",
                         
                     },
                     
@@ -124,7 +109,7 @@
                         title: "Please enter your first name",
                         nickname: "Please enter your first name",
                         detail: "Please enter your first name",                                        
-                        
+                        revrating: "Please select the rating."
                         
                     },
                     

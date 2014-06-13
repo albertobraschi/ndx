@@ -170,7 +170,7 @@ class Mage_Review_ProductController extends Mage_Core_Controller_Front_Action
             /* @var $session Mage_Core_Model_Session */
             $review     = Mage::getModel('review/review')->setData($data);
             /* @var $review Mage_Review_Model_Review */
-
+           
             $validate = $review->validate();
             if ($validate === true) {
                 try {

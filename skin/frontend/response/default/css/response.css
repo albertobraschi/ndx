@@ -23,7 +23,7 @@
 /* 1. Basics & Buttons												3000Themes.com
 /*================================================================================ */
 
-body{ background: #f6f6f6; font: 14px/21px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;}
+body{ background: #f6f6f6; font: 13px/21px "Open Sans",Arial,Helvetica,sans-serif;}
 
 	.button,
 	button,
@@ -36,7 +36,7 @@ body{ background: #f6f6f6; font: 14px/21px "HelveticaNeue", "Helvetica Neue", He
 	  cursor: pointer;
 	  font-weight: bold;
 	  height: 38px;
-	  padding: 0 10px !important;
+	  padding: 0 2px !important;
 }
 	
 	/*{
@@ -218,6 +218,7 @@ text-transform: uppercase;
 color: #666;
 }
 footer a{ color: #212b33; }
+footer a:hover{ text-decoration: underline; }
 footer .about a,
 footer .contact a{ text-transform: uppercase;	color: #ee7440 !important;}
 footer .contact a{ text-transform: capitalize; }
@@ -247,7 +248,7 @@ footer .contact a{ text-transform: capitalize; }
 	text-transform: uppercase;
 	color: #000;
 	margin-bottom: 0;
-	font-size: 1.2em;
+	/*font-size: 1.2em;*/
 	border-bottom: 1px solid #ccc;
 	width: 100%;
 }
@@ -369,13 +370,13 @@ button.btn-empty:hover, button.btn-update:hover, button.btn-continue:hover {
   color: #FF0000;
 }
 #shopping-cart-totals-table{
-	color: #aab8c4;
+	/*color: #aab8c4;*/
 }
 .crosssell .price-box .price{ color: #aab8c4;}
 .crosssell h3.product-name a{ color: #212b33; }
 .crosssell ul.add-to-links li a{ color: #aab8c4;}
 
 
-.container .eight.columns {
+/*.container .eight.columns {
     width: 100%;
-}
+}*/

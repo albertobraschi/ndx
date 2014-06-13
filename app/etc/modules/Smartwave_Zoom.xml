@@ -10,7 +10,7 @@
 <config>
     <modules>
         <Smartwave_Zoom>
-            <active>false</active>
+            <active>true</active>
             <codePool>local</codePool>
         </Smartwave_Zoom>
     </modules>

@@ -363,7 +363,7 @@ margin: 0;
 /*================================================================================ */
 	.leftcol{ min-height: 300px; }
 
-	.block-layered-nav{ font-size: 11px; }
+
 	.block-layered-nav ol{
 		margin: 0;
 		padding: 0;
@@ -389,9 +389,7 @@ margin: 0;
 /* 8. Products Grid 												3000Themes.com
 /*================================================================================ */
 
-	.category-title h1{ display: none;	}
-
-	.toolbar{ font-size: 11px; line-height: 18px; text-transform: uppercase; height: 18px; margin: 0 0 12px 0;
+	.toolbar{ float:left;font-size: 11px; line-height: 18px; text-transform: uppercase; height: 18px; margin: 0 0 12px -24px;
 	}
 
 	.toolbar .pager{ float: right; min-width: 8%;
@@ -900,7 +898,7 @@ margin: 0;
 		float: left;
 	}
 	.crosssell ul li.item .product-shop { clear: both; }
-	.discount { margin-bottom: 25px; border:1px solid #ddd; background: #fff; padding: 20px;}
+	.discount { margin-bottom: 41px; border:1px solid #ddd; background: #fff; padding: 0 20px;}
 	.crosssell .btn-cart,
 	.crosssell .btn-cart:hover{
 		margin-top: 6px;
@@ -1033,7 +1031,7 @@ margin: 0;
 	}
 	a.btn-remove,
 	a.btn-remove.btn-remove2{
-		background: url(../images/ico_del.png) top right no-repeat !important;
+		background: url(../images/ico_del.png) 8px 5px no-repeat !important;
 		font: 0/0 a;
 		text-shadow: none;
 		color: transparent;
@@ -1594,7 +1592,7 @@ p.error-msg { font-size:12px !important; padding:10px; margin:10px 0; }
   font-family: "Open Sans",Arial,Helvetica,sans-serif;
   font-size: 12px;
   font-weight: normal !important;
-  margin-left: 8px;
+  margin-left: 0;
 }
 .stayupdated{
     background: url("../images/newsletter_bg.png") repeat-x;
@@ -1712,6 +1710,8 @@ address hr{
     font-size: 13px;
     /*font-weight:bold;*/
 }
+
+#shopping-cart-totals-table .price {font-size: 16px;}
 .shipping_msg{
     font-size:12px;
 }
@@ -2679,7 +2679,6 @@ body > header > div > div.eleven.columns.navigation {
     float:left;
 }
 
-.rightpart .brand { margin-bottom: 0;}
 
 .rightpart .brand a{
     text-align: left;
@@ -2689,6 +2688,19 @@ body > header > div > div.eleven.columns.navigation {
     text-decoration: none;
     font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
+
+.products-grid .brand a{
+    color: #333333;
+    font-size: 11px;
+    font-weight: bold;
+    text-decoration: none;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+.products-grid .brand {text-align:center;}
+
+.rightpart .brand, .products-grid .brand  { margin-bottom: 0;}
+
 .products-grid p.product-name{
     text-align: center;
     height: 50px;
@@ -2732,7 +2744,7 @@ p.lightText {
   line-height: normal !important;
   padding: 0 !important;
   text-align: left;
-  width: 550px;
+  width: 100%;
 }
 
 p.darkText {
@@ -2742,7 +2754,7 @@ p.darkText {
   line-height: normal !important;
   padding: 0 !important;
   text-align: left;
-  width: 550px;
+  width: 100%;
 }
 
 h2.headerWho {
@@ -2780,7 +2792,7 @@ h2.headerWho {
 
 .catalog-product-view .container .block-related {width: 140px;padding-left: 10px;}
 
-.catalog-category-view .leftcol{width: 180px;}
+.catalog-category-view .leftcol{width: 180px !important;}
 
 /*td classes for group related products*/
 #super-product-table{border-collapse: initial !important;}
@@ -2840,7 +2852,7 @@ table.cart-table th {background-color: #efefef;color: #000;}
 p.old-price, p.special-price{margin:0;}
 
 .special-price .price-label, .special-price .price {
-  font-size: 15px !important;
+  font-size: 16px !important;
   font-weight: bold;
 }
 
@@ -2849,11 +2861,28 @@ p.old-price, p.special-price{margin:0;}
   font-weight: normal;
 }
 
+.catalog-category-view .old-price {
+  float: right;
+}
+
+.category-products .price {
+  padding: 0 5px;
+  text-align: left;
+}
+
+.catalog-category-view .special-price {
+  float: left;
+}
+
+.catalog-category-view .special-price .price-label {
+  display: none;
+}
+
 .backtotop{float: right;color:#333;font-size:12px;text-decoration: underline;margin-right:7px;}
 .backtotop:hover{text-decoration: none;}
 
 footer .addressinfo {
-  float: right !important;
+  /*float: right !important;*/
   margin: 0 !important;
   width: 240px !important;
 }
@@ -2894,7 +2923,7 @@ footer .addressinfo {
 
 #compare-items a.btn-remove, #compare-items a.btn-remove.btn-remove2 {
   background: url("../images/ico_del.png") no-repeat scroll 3px 6px rgba(0, 0, 0, 0) !important;
-  float: left;
+  float: right;
   height: 16px;
   width: 8px;
 }
@@ -2969,3 +2998,18 @@ footer .addressinfo {
   line-height: normal;
   margin: 0 0 2px;
 }
+
+.giftrange {
+  float: left;
+  margin-top: -20px;
+}
+
+.giftcard-info label, .giftcard-info legend {
+  font-weight: normal;
+}
+
+.giftrange, .giftrange .price{
+  font-size: 13px !important;
+  font-weight: normal !important;
+}
+

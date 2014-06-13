@@ -23,15 +23,15 @@
 /* 1. Basics & Buttons												3000Themes.com
 /*================================================================================ */
 
-body{ background: url("../images/background.png"); font: 14px/21px 'PT Sans Narrow', sans-serif;}
+body{ background: url("../images/background.png"); font: 16px/21px 'PT Sans Narrow', sans-serif;color: #666;}
 
 	.button,
 	button,
 	input[type="submit"],
 	input[type="reset"],
 	input[type="button"] {
-	background: #C01C13;
-	font-size: 19px;
+	background: #bf2a37;
+	font-size: 16px;
 	text-transform: uppercase;
 	text-shadow: none;
 	color: #fff;
@@ -64,12 +64,12 @@ h1, h2, h3, h4, h5, h6 {
     font-family: ''PT Sans Narrow', sans-serif;
 	font-weight: bold; }
 
-h1 { font-size: 46px; line-height: 54px; margin-bottom: 18px;}
-h2 { font-size: 35px; line-height: 48px; margin-bottom: 12px; }
-h3 { font-size: 28px; line-height: 42px; margin-bottom: 6px; }
-h4 { font-size: 21px; line-height: 36px; margin-bottom: 0; }
-h5 { font-size: 17px; line-height: 30px; }
-h6 { font-size: 14px; line-height: 24px; }
+h1 { font-size: 36px; line-height: 54px; margin-bottom: 18px;}
+h2 { font-size: 30px; line-height: 48px; margin-bottom: 12px; }
+h3 { font-size: 24px; line-height: 42px; margin-bottom: 6px; }
+h4 { font-size: 28px; line-height: 26px; margin-bottom: 0; }
+h5 { font-size: 13px; line-height: 30px; }
+h6 { font-size: 11px; line-height: 24px; }
 h2.legend{ text-transform:uppercase; }
 a{
 	color: black/*#ee7440*/;
@@ -220,11 +220,12 @@ footer .contact a{ text-transform: capitalize; }
   text-transform: uppercase;
   width: 100%;
 }
-.block-layered-nav li a{ color: #212b33; text-transform: uppercase;}
-.block-layered-nav li a{ color: #212b33; text-transform: uppercase;}
+.block-layered-nav li a{ color: #666; text-transform: none;}
+.block-layered-nav li a{ color: #666; text-transform: none;}
+.block-layered-nav li a:hover{ color: #333;}
 .currently ol li a.btn-remove{
-	color: #ee7440;
-	text-transform: uppercase;
+	color: #666;
+	text-transform: none;
 }
 .currently{
 	border-bottom: 3px solid #dfe3e7;
@@ -237,7 +238,7 @@ footer .contact a{ text-transform: capitalize; }
 .products-grid h2.product-name a,
 .products-list h2.product-name a{ color: #333; }
 .products-list .price-box .price{ color: #aab8c4; font-size: 18px; }
-.category-products .price{ font-family: 'PT Sans Narrow', sans-serif;color: #BF2C39; font-size: 20px; font-weight: normal;text-align:left;padding: 0 10px;}
+.category-products .price{ font-family: 'PT Sans Narrow', sans-serif;color: #BF2C39; font-size: 20px; font-weight: normal;text-align:left;padding: 0 5px;}
 button:hover.btn-cart{ background: #d86939; }
 .products-grid ul.add-to-links li a,
 .products-list ul.add-to-links li a{
@@ -325,9 +326,9 @@ button:hover.btn-cart{
 /*================================================================================ */
 
 button.btn-empty, button.btn-update, button.btn-continue {
-  background: none repeat scroll 0 0 #FFFFFF;
-  border: 1px solid #CCCCCC;
-  color: #FF0000;
+  background: none repeat scroll 0 0 #444;
+  border: 1px solid #444;
+  color: #fff;
 }
 #shopping-cart-totals-table{
 	color: #aab8c4;

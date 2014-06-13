@@ -65,6 +65,7 @@
 body{ font: 14px/21px 'PT Sans Narrow', sans-serif;}
 .content{
 	z-index: 10;
+	min-height: 350px;
 }
 	.four.columns.leftcol{ float: left;margin: 10px 0 0 17px;}
 	.twelve.columns.col2l.content{ float: right; }
@@ -249,11 +250,13 @@ nav.primary ul li.first a { margin-left: 0;}
 .accountInfo{
     float:right !important;
     margin-top: 20px !important;
-    margin-right: 1px !important;
+    margin-right: 4px !important;
+    font-size: 14px;
 }
 .accountInfo ul{
     float: right;
     margin: 0 0 6px 0;
+
 }
 .accountInfo li{
     float: left;
@@ -325,15 +328,17 @@ nav.primary ul li.first a { margin-left: 0;}
   padding-left: 20px;
   width: 30px !important;
 }
-.EventHolder ul li span{
+.EventHolder ul li a{
     font-size: 16px;
     color: #666666;
     letter-spacing: -0.01px;
     font-family: 'PT Sans Narrow', sans-serif;
 }
-.EventHolder ul li.first span{
 
+.EventHolder ul li a:hover{
+	color: #333;
 }
+
 .category-products a.product-image{
     border: none;
 }
@@ -354,7 +359,7 @@ nav.primary ul li.first a { margin-left: 0;}
     text-shadow: none;
     float: left;
     width: 80px;
-    height: 38px;
+    height: 36px;
     padding: 0;
     margin: 0 0 0 5px;
     box-shadow: 2px 2px 3px 0px rgba(50, 50, 50, 0.75);
@@ -519,9 +524,8 @@ footer h3{
 /* 8. Products Grid 												3000Themes.com
 /*================================================================================ */
 
-	.category-title h1{ display: none;	}
 
-	.toolbar{ font-size: 11px; line-height: 18px; text-transform: uppercase; height: 18px; margin: 0 0 12px 0;
+	.toolbar{ float:left;font-size: 13px; line-height: 18px; text-transform: uppercase; height: 18px; margin: 0 0 12px -24px;
 	}
 
 	.toolbar .pager{ float: right; min-width: 8%;
@@ -555,7 +559,7 @@ footer h3{
 	.products-grid li.item{
 		margin: 0 !important;
         border: 1px solid #cfcfcf;
-        min-height: 395px;
+        min-height: 405px;
         padding: 10px 10px 0;
 	}
 	/*.products-grid .price-box{
@@ -912,8 +916,9 @@ footer h3{
 		padding-top: 10px;
 	}
 	.box-reviews h5{
-		font-size: 12px;
+		font-size: 16px;
 		line-height: 18px;
+		color: #666;
 	}
 		.box-reviews textarea{
 			height: 100px;
@@ -1518,7 +1523,7 @@ footer h3{
 	}
 
 	.block-progress{
-		font-size: 12px;
+		font-size: 16px;
 	}
 
 	.block-progress dd{
@@ -1552,7 +1557,7 @@ footer h3{
 	}
 	.customer-account-create .buttons-set button.button{
 		font-size: 16px;
-		padding: 16px;
+		padding: 3px 9px;
 		float: right;
 	}
 	.registered-users .content .f-left{
@@ -1735,7 +1740,7 @@ footer {
   font-family: 'PT Sans Narrow', sans-serif;
   font-size: 15px;
   font-weight: normal !important;
-  margin-left: 8px;
+  margin-left: 0;
 }
 .stayupdated{
     background: url("../images/newsletter_bg.png") repeat-x;
@@ -2038,6 +2043,7 @@ footer #newsletter-validate-detail > label {
     background: #eeeeee !important;
     color:#555555 !important;
     box-shadow: 2px 2px 1px #888 !important;
+    margin-top: 10px;
 }
 
 .button.btn-cart.registry{font-weight: normal !important;  font-size: 15px !important;}
@@ -2661,14 +2667,25 @@ div.product{
 	/* Mobile Landscape Size to Tablet Portrait (devices and browsers) (iphone landscape)*/
 	@media only screen and (min-width: 480px) and (max-width: 767px) {
         /*Added by Ed A*/
+		.container .logo {
+	  		display: block;
+	  		text-align: center;
+	  		float: none;
+		}
 		.search_div img{display:none;}
 		
-		.accountInfo {
-		  float: right !important;
+		.container .accountInfo {
+		  float: none;
 		  font-size: 13px;
-		  margin-right: 10px !important;
-		  margin-top: 20px !important;
 		}
+		
+		.container .accountInfo ul {
+		  float: none;
+		  margin: 0 auto;
+		  text-align: center;
+		  width: 300px;
+		}
+		
 		.accountInfo img{display: none;}
 		
 		.search_div {
@@ -2682,9 +2699,13 @@ div.product{
 		  line-height: 30px;
 		  margin: 10px 0;
 		}
+		
+		.container .content{padding: 0 3px;}
 
-		footer {
-  		  padding: 0 !important;
+		.container .leftpart{float: none;margin: 0 5px;}	
+		
+		.container footer {
+  		  padding: 10px;
 		}
 		
 		#Socialinfo {
@@ -2736,7 +2757,7 @@ div.product{
 		.accountInfo {
 		  float: right !important;
 		  font-size: 13px;
-		  margin-right: 10px !important;
+		  margin-right: 3px !important;
 		  margin-top: 20px !important;
 		}
 		.accountInfo img{display: none;}
@@ -2996,7 +3017,7 @@ div.sixteen.columns.navigation{
 .product-tabs .first a{
     border-left: none;
 }
-.product-tabs a:hover { background-color:#C8E6ED; text-decoration:none; color:#666666; }
+.product-tabs a:hover { text-decoration:none; color:#333; }
 .product-tabs li.active a,
 .product-tabs li.active a:hover {
     /*background-color:#666; font-weight:bold;*/
@@ -3102,18 +3123,18 @@ div.sixteen.columns.navigation{
 }
 .brand{
     text-align: left;
-    padding: 0 10px;
+	padding: 0;
     margin-bottom: 0;
     color: #333333;
-    font-size: 11px;
-    font-weight: bold;
+    font-size: 15px;
+    font-weight: normal;
     text-decoration: none;
     font-family: 'PT Sans Narrow', sans-serif;
 }
 .products-grid p.product-name{
     text-align: left;
     height: 65px;
-     padding: 0 10px;
+     /*padding: 0 10px;*/
 }
 
 .products-grid p.product-name .product_name_a{
@@ -3314,11 +3335,6 @@ div.sixteen.columns.navigation{
 }
 
 
-
-
-
-
-
 .catalog-category-view .price-label {
   font-size: 18px;
 }
@@ -3333,7 +3349,7 @@ div.sixteen.columns.navigation{
 
 .catalog-category-view .old-price .price, .catalog-category-view  .old-price .price-label {
   color: #656565;
-  font-size: 17px;
+  font-size: 16px;
 }
 .catalog-category-view .old-price {
   float: right;
@@ -3341,8 +3357,11 @@ div.sixteen.columns.navigation{
 
 .catalog-category-view .price {
   color: #B6121D;
-  font-size: 19px;
   font-weight: normal;
+}
+
+.catalog-category-view .price:hover {
+  color: #333;
 }
 
 .related_slider .old-price, .related_slider  .special-price .price-label{display: none;}
@@ -3378,9 +3397,11 @@ div.sixteen.columns.navigation{
 .block-related{width: 190px !important;}
 
 .rightpart .brand_div h4 {
-  font-size: 23px;
+  font-size: 28px;
   color: #333;
   font-weight: normal;
+  line-height: 25px;
+  margin-bottom: 5px;
 }
 
 .rightpart .std {
@@ -3389,3 +3410,37 @@ div.sixteen.columns.navigation{
 }
 
 .paypal-or{display: none;}
+
+.no-rating {
+  display: block;
+  padding-top: 4px;
+}
+
+.ratings{display: block}
+
+.ratings, .no-rating {
+  clear: both;
+  margin: 3px 0 3px 0;
+  color: #999;
+}
+
+.rating-links a, .no-rating a {
+  color: #999;
+}
+
+#product_tabs_specification_contents h4, #product_tabs_description_contents h4 {display: none; }
+
+#product_tabs_specification_contents ul, #product_tabs_description_contents ul {
+  list-style: disc;
+  margin: 0 0 10px 30px;
+}
+
+#product_tabs_specification_contents li, #product_tabs_description_contents li {
+  line-height: normal;
+  margin: 0 0 2px;
+}
+
+#customer-reviews .required > em {
+  display: inline-block;
+  width: 10px;
+}

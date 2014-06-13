@@ -27,43 +27,92 @@
 
 <?php $_items = $this->getReviewsCollection()->getItems();?>
 <div class="box-collateral box-reviews clearfix" id="customer-reviews">
+    <div class="firstreviewmsg" style="display: inline-block;">
+        <h3 id="reviews">Product Reviews</h3>
+        <p> If you would like to be contacted about this product/review, please call us at (914) 220-4977 or email us directly at <a href="mailto:info@parkandmain.com">info@parkandmain.com</a></p>        
+     </div>
+     <div class="review" style="display: inline-block;">
+        <a href="#" onclick="show_product_review_form(); return false;" class="FloatRight">
+            <img src="http://www.parkandmain.com/templates/default/images/blue/WriteReviewButton.gif" alt="Write your own product review">
+        </a>
+     </div>  
+     <div id="reviewformdiv" style="display: none;"> 
+     <?php 
+       
+        echo $this->getChildHtml('review_form');
+     ?>
+    </div>
+    
     <?php if (count($_items)):?>
         <h4><?php echo $this->__('Customer Reviews') ?></h4>
         <?php echo $this->getChildHtml('toolbar') ?>
         <dl>
-        <?php foreach ($_items as $_review):?>
-            <dt>
-                <a href="<?php echo $this->getReviewUrl($_review->getId()) ?>"><?php echo $this->htmlEscape($_review->getTitle()) ?></a> <?php echo $this->__('Review by <span>%s</span>', $this->htmlEscape($_review->getNickname())) ?>
-            </dt>
-            <dd>
-                <?php $_votes = $_review->getRatingVotes(); ?>
-                <?php if (count($_votes)): ?>
-                <table class="ratings-table">
-                    <col width="1" />
+        <?php foreach ($_items as $_review):?>         
+            <?php 
+               
+                
+                $_votes = $_review->getRatingVotes(); 
+                
+                 if (count($_votes)==0){
+                    continue;
+                }
+                   
+                $rating=0.0;
+                foreach ($_votes as $_vote){
+                    $rating += floatval($_vote->getPercent());
+                    
+                }
+                
+                $rating = $rating/count($_votes)/100*5; //get start value
+                $rating = intval($rating);
+            ?>
+            <dd>  
+                 <table class="ratings-table">                    
                     <col />
-                    <tbody>
-                        <?php foreach ($_votes as $_vote): ?>
-                        <tr>
-                            <th><?php echo $this->escapeHtml($_vote->getRatingCode()) ?></th>
+                    <tbody>                        
+                        <tr>                            
                             <td>
-                                <div class="rating-box">
-                                    <div class="rating" style="width:<?php echo $_vote->getPercent() ?>%;"></div>
-                                </div>
+                                <img width="80" height="15" src="http://www.parkandmain.com/templates/default/images/IcoRating<?php echo $rating?>.gif" alt="">                                    
                             </td>
                         </tr>
-                        <?php endforeach; ?>
+                        <tr>                            
+                            <td>
+                                <?php 
+                                      echo $this->htmlEscape($_review->getTitle());
+                                ?>
+                            </td>
+                        </tr>
+                        <tr>                            
+                            <td>
+                                Posted by <?php echo $this->htmlEscape($_review->getNickname());?> <?php echo $this->formatDate($_review->getCreatedAt(), 'long');?>
+                            </td>
+                        </tr>
+                        <tr>                            
+                            <td>
+                                <?php echo $this->htmlEscape($_review->getReview());?>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
-                <?php endif; ?>
-                <?php echo nl2br($this->htmlEscape($_review->getDetail())) ?>
-                <small class="date"><?php echo $this->__('(Posted on %s)', $this->formatDate($_review->getCreatedAt()), 'long') ?></small>
-            </dd>
+           </dd>
         <?php endforeach; ?>
         </dl>
         <?php echo $this->getChildHtml('toolbar') ?>
+    <?php else:?>
+     <!-- There is no review. You will post the first review-->   
+          <p >
+            This product hasn't received any reviews yet. Be the first to review this product!
+        </p>
+        
     <?php endif;?>
-    <?php 
-       
-        echo $this->getChildHtml('review_form');
-    ?>
+    
+    
 </div>
+
+<script>
+    
+    function show_product_review_form(){        
+         jQuery("#reviewformdiv").css("display","block");
+    }
+    
+</script>
